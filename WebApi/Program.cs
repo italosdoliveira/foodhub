@@ -3,17 +3,13 @@ using Domain.Interfaces.Repositories;
 using Domain.Interfaces.Services;
 using Infra.Data.Context;
 using Infra.Data.Repository;
-using Infra.IoC;
 using Microsoft.EntityFrameworkCore;
-using WebApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 builder.Services.AddDbContext<ApplicationMongoDbContext>(options =>
 {

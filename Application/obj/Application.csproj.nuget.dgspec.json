@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Italo\\OneDrive\\Área de Trabalho\\desafio-foodhub\\Foodhub\\Application\\Application.csproj": {}
+    "C:\\Users\\Pichau\\Desktop\\foodhub\\Application\\Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Italo\\OneDrive\\Área de Trabalho\\desafio-foodhub\\Foodhub\\Application\\Application.csproj": {
+    "C:\\Users\\Pichau\\Desktop\\foodhub\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Italo\\OneDrive\\Área de Trabalho\\desafio-foodhub\\Foodhub\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\Pichau\\Desktop\\foodhub\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\Italo\\OneDrive\\Área de Trabalho\\desafio-foodhub\\Foodhub\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\Italo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Italo\\OneDrive\\Área de Trabalho\\desafio-foodhub\\Foodhub\\Application\\obj\\",
+        "projectPath": "C:\\Users\\Pichau\\Desktop\\foodhub\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\Pichau\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Pichau\\Desktop\\foodhub\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Italo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Pichau\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,14 +26,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Italo\\OneDrive\\Área de Trabalho\\desafio-foodhub\\Foodhub\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Italo\\OneDrive\\Área de Trabalho\\desafio-foodhub\\Foodhub\\Domain\\Domain.csproj"
+              "C:\\Users\\Pichau\\Desktop\\foodhub\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Pichau\\Desktop\\foodhub\\Domain\\Domain.csproj"
               }
             }
           }
@@ -79,20 +80,20 @@
         }
       }
     },
-    "C:\\Users\\Italo\\OneDrive\\Área de Trabalho\\desafio-foodhub\\Foodhub\\Domain\\Domain.csproj": {
+    "C:\\Users\\Pichau\\Desktop\\foodhub\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Italo\\OneDrive\\Área de Trabalho\\desafio-foodhub\\Foodhub\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Pichau\\Desktop\\foodhub\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Italo\\OneDrive\\Área de Trabalho\\desafio-foodhub\\Foodhub\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\Italo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Italo\\OneDrive\\Área de Trabalho\\desafio-foodhub\\Foodhub\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\Pichau\\Desktop\\foodhub\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\Pichau\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Pichau\\Desktop\\foodhub\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Italo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Pichau\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -101,6 +102,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -124,6 +126,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "MongoDB.Bson": {
+              "target": "Package",
+              "version": "[3.5.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

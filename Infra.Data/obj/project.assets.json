@@ -242,7 +242,7 @@
           }
         }
       },
-      "MongoDB.Bson/3.5.0": {
+      "MongoDB.Bson/3.5.2": {
         "type": "package",
         "dependencies": {
           "System.Memory": "4.5.5",
@@ -421,6 +421,9 @@
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "MongoDB.Bson": "3.5.2"
+        },
         "compile": {
           "bin/placeholder/Domain.dll": {}
         },
@@ -854,10 +857,10 @@
         "version.txt"
       ]
     },
-    "MongoDB.Bson/3.5.0": {
-      "sha512": "JGNK6BanLDEifgkvPLqVFCPus5EDCy416pxf1dxUBRSVd3D9+NB3AvMVX190eXlk5/UXuCxpsQv7jWfNKvppBQ==",
+    "MongoDB.Bson/3.5.2": {
+      "sha512": "aTlbKclBjXi4j3AkrHiaeuKCvdoGA029VbvXJUmmsCXDz+DEfBFq6n9uOvXJu2YXcJiW9Vay1ZctY5Iu0JRXdw==",
       "type": "package",
-      "path": "mongodb.bson/3.5.0",
+      "path": "mongodb.bson/3.5.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -868,7 +871,7 @@
         "lib/net6.0/MongoDB.Bson.xml",
         "lib/netstandard2.1/MongoDB.Bson.dll",
         "lib/netstandard2.1/MongoDB.Bson.xml",
-        "mongodb.bson.3.5.0.nupkg.sha512",
+        "mongodb.bson.3.5.2.nupkg.sha512",
         "mongodb.bson.nuspec",
         "packageIcon.png"
       ]
@@ -1187,27 +1190,28 @@
     "net8.0": [
       "Domain >= 1.0.0",
       "Microsoft.Extensions.DependencyInjection >= 10.0.1",
+      "MongoDB.Bson >= 3.5.2",
       "MongoDB.EntityFrameworkCore >= 9.0.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Italo\\.nuget\\packages\\": {},
+    "C:\\Users\\Pichau\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Italo\\OneDrive\\Área de Trabalho\\desafio-foodhub\\Foodhub\\Infra.Data\\Infra.Data.csproj",
+      "projectUniqueName": "C:\\Users\\Pichau\\Desktop\\foodhub\\Infra.Data\\Infra.Data.csproj",
       "projectName": "Infra.Data",
-      "projectPath": "C:\\Users\\Italo\\OneDrive\\Área de Trabalho\\desafio-foodhub\\Foodhub\\Infra.Data\\Infra.Data.csproj",
-      "packagesPath": "C:\\Users\\Italo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Italo\\OneDrive\\Área de Trabalho\\desafio-foodhub\\Foodhub\\Infra.Data\\obj\\",
+      "projectPath": "C:\\Users\\Pichau\\Desktop\\foodhub\\Infra.Data\\Infra.Data.csproj",
+      "packagesPath": "C:\\Users\\Pichau\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Pichau\\Desktop\\foodhub\\Infra.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Italo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Pichau\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1216,14 +1220,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Italo\\OneDrive\\Área de Trabalho\\desafio-foodhub\\Foodhub\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\Italo\\OneDrive\\Área de Trabalho\\desafio-foodhub\\Foodhub\\Domain\\Domain.csproj"
+            "C:\\Users\\Pichau\\Desktop\\foodhub\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\Pichau\\Desktop\\foodhub\\Domain\\Domain.csproj"
             }
           }
         }
@@ -1247,6 +1252,10 @@
           "Microsoft.Extensions.DependencyInjection": {
             "target": "Package",
             "version": "[10.0.1, )"
+          },
+          "MongoDB.Bson": {
+            "target": "Package",
+            "version": "[3.5.2, )"
           },
           "MongoDB.EntityFrameworkCore": {
             "target": "Package",

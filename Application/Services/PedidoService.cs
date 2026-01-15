@@ -1,55 +1,93 @@
-﻿using AutoMapper;
-using Domain.Dtos;
+﻿using Domain.Dtos;
 using Domain.Entities;
 using Domain.Interfaces.Repositories;
 using Domain.Interfaces.Services;
+using MongoDB.Bson;
 
 namespace Application.Services
 {
     public class PedidoService : IPedidoService
     {
-        private readonly IMapper _mapper;
         private readonly IPedidoRepository _pedidoRepository;
 
-        public PedidoService(IMapper mapper, IPedidoRepository pedidoRepository)
+        public PedidoService(IPedidoRepository pedidoRepository)
         {
-            _mapper = mapper;
             _pedidoRepository = pedidoRepository;
         }
 
         public async Task<PedidoDto> AdicionarPedido(Pedido pedido)
         {
-            var pedidoAdicionado = await _pedidoRepository.AdicionarPedido(pedido);
-            return new PedidoDto(pedidoAdicionado);
+            try
+            {
+                pedido.CalcularTotalPedido();
+                var pedidoAdicionado = await _pedidoRepository.AdicionarPedido(pedido);
+                return new PedidoDto(pedidoAdicionado);
+            }
+            catch (Exception ex) {
+                return null;
+            }
         }
 
-        public async Task<PedidoDto> AtualizarPedido(string codigo, AtualizacaoPedidoDto pedido)
+        public async Task<PedidoDto> AtualizarPedido(ObjectId id, Pedido pedido)
         {
-            if (codigo is null) 
-                throw new Exception("Codigo do pedido deve ser informado");
+            try
+            {
+                var pedidoAtualizado = await _pedidoRepository.AtualizarPedido(pedido);
 
-            var pedidoParaAtualizar = _mapper.Map<AtualizacaoPedidoDto, Pedido>(pedido);
-            pedidoParaAtualizar.Codigo = codigo;
-            var pedidoAtualizado = await _pedidoRepository.AtualizarPedido(pedidoParaAtualizar);
-
-            return new PedidoDto(pedidoAtualizado);
+                return new PedidoDto(pedidoAtualizado);
+            }
+            catch
+            {
+                return null;
+            }
         }
 
-        public async Task<PedidoDto> BuscarPedidoPeloId(string codigo)
+
+        public async Task<PedidoDto> BuscarPedidoPeloCodigo(string codigo)
         {
-            var pedido = await _pedidoRepository.BuscarPedidoPeloId(codigo);
-            return new PedidoDto(pedido);
+            try
+            {
+                var pedido = await _pedidoRepository.BuscarPedidoPeloCodigo(codigo);
+
+                if (pedido is null)
+                    return null;
+
+                return new PedidoDto(pedido);
+            }
+            catch 
+            {
+                return null;
+            }
+            
         }
 
-        public async Task<bool> DeletarPedido(string id)
+        public async Task<bool> DeletarPedido(ObjectId id)
         {
-            return await _pedidoRepository.DeletarPedido(id);
+            try
+            {
+                return await _pedidoRepository.DeletarPedido(id);
+            }
+            catch
+            { 
+                return false; 
+            }
         }
 
         public async Task<IEnumerable<PedidoDto>> ListarPedido()
         {
-            var pedidos = await _pedidoRepository.ListarPedido();
-            return pedidos.Select(p => new PedidoDto(p)).AsEnumerable();
+            try
+            {
+                var pedidos = await _pedidoRepository.ListarPedido();
+
+                if (pedidos is null)
+                    return null;
+
+                return pedidos.Select(p => new PedidoDto(p)).AsEnumerable();
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }

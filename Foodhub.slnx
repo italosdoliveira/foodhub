@@ -1,7 +1,7 @@
 <Solution>
   <Folder Name="/Infra/">
     <Project Path="Infra.Data/Infra.Data.csproj" />
-    <Project Path="Infra.Ioc/Infra.Ioc.csproj" Id="75bb166d-b56a-4872-893e-52d6d6d4e29c" />
+    <Project Path="Infra.Ioc/Infra.Ioc.csproj" />
   </Folder>
   <Project Path="Application/Application.csproj" Id="0605cad3-6b1e-46e2-8d97-822e1e697ef2" />
   <Project Path="Domain/Domain.csproj" />

@@ -13,3 +13,23 @@ C:\Users\Italo\OneDrive\Área de Trabalho\desafio-foodhub\Foodhub\Infra.Ioc\obj\
 C:\Users\Italo\OneDrive\Área de Trabalho\desafio-foodhub\Foodhub\Infra.Ioc\obj\Debug\net8.0\refint\Infra.Ioc.dll
 C:\Users\Italo\OneDrive\Área de Trabalho\desafio-foodhub\Foodhub\Infra.Ioc\obj\Debug\net8.0\Infra.Ioc.pdb
 C:\Users\Italo\OneDrive\Área de Trabalho\desafio-foodhub\Foodhub\Infra.Ioc\obj\Debug\net8.0\ref\Infra.Ioc.dll
+C:\Users\Pichau\Desktop\foodhub\Infra.Ioc\bin\Debug\net8.0\Infra.Ioc.deps.json
+C:\Users\Pichau\Desktop\foodhub\Infra.Ioc\bin\Debug\net8.0\Infra.Ioc.dll
+C:\Users\Pichau\Desktop\foodhub\Infra.Ioc\bin\Debug\net8.0\Infra.Ioc.pdb
+C:\Users\Pichau\Desktop\foodhub\Infra.Ioc\bin\Debug\net8.0\Domain.dll
+C:\Users\Pichau\Desktop\foodhub\Infra.Ioc\bin\Debug\net8.0\Domain.pdb
+C:\Users\Pichau\Desktop\foodhub\Infra.Ioc\obj\Debug\net8.0\Infra.Ioc.csproj.AssemblyReference.cache
+C:\Users\Pichau\Desktop\foodhub\Infra.Ioc\obj\Debug\net8.0\Infra.Ioc.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Pichau\Desktop\foodhub\Infra.Ioc\obj\Debug\net8.0\Infra.Ioc.AssemblyInfoInputs.cache
+C:\Users\Pichau\Desktop\foodhub\Infra.Ioc\obj\Debug\net8.0\Infra.Ioc.AssemblyInfo.cs
+C:\Users\Pichau\Desktop\foodhub\Infra.Ioc\obj\Debug\net8.0\Infra.Ioc.csproj.CoreCompileInputs.cache
+C:\Users\Pichau\Desktop\foodhub\Infra.Ioc\obj\Debug\net8.0\Infra.Ioc.sourcelink.json
+C:\Users\Pichau\Desktop\foodhub\Infra.Ioc\obj\Debug\net8.0\Infra.Ioc.csproj.Up2Date
+C:\Users\Pichau\Desktop\foodhub\Infra.Ioc\obj\Debug\net8.0\Infra.Ioc.dll
+C:\Users\Pichau\Desktop\foodhub\Infra.Ioc\obj\Debug\net8.0\refint\Infra.Ioc.dll
+C:\Users\Pichau\Desktop\foodhub\Infra.Ioc\obj\Debug\net8.0\Infra.Ioc.pdb
+C:\Users\Pichau\Desktop\foodhub\Infra.Ioc\obj\Debug\net8.0\ref\Infra.Ioc.dll
+C:\Users\Pichau\Desktop\foodhub\Infra.Ioc\bin\Debug\net8.0\Application.dll
+C:\Users\Pichau\Desktop\foodhub\Infra.Ioc\bin\Debug\net8.0\Infra.Data.dll
+C:\Users\Pichau\Desktop\foodhub\Infra.Ioc\bin\Debug\net8.0\Application.pdb
+C:\Users\Pichau\Desktop\foodhub\Infra.Ioc\bin\Debug\net8.0\Infra.Data.pdb
