@@ -1,5 +1,6 @@
 ﻿using Domain.Dtos;
 using Domain.Entities;
+using Domain.Enums;
 using Domain.Interfaces.Repositories;
 using Domain.Interfaces.Services;
 using MongoDB.Bson;
@@ -32,7 +33,7 @@ namespace Application.Services
         {
             try
             {
-                var pedidoAtualizado = await _pedidoRepository.AtualizarPedido(pedido);
+                var pedidoAtualizado = await _pedidoRepository.AtualizarPedido(id, pedido);
 
                 return new PedidoDto(pedidoAtualizado);
             }
@@ -42,6 +43,19 @@ namespace Application.Services
             }
         }
 
+        public async Task<PedidoDto> AtualizarStatusPedido(ObjectId id, StatusPedido novoStatus)
+        {
+            try
+            {
+                var pedidoAtualizado = await _pedidoRepository.AtualizarStatusPedido(id, novoStatus);
+
+                return new PedidoDto(pedidoAtualizado);
+            }
+            catch
+            {
+                return null;
+            }
+        }
 
         public async Task<PedidoDto> BuscarPedidoPeloCodigo(string codigo)
         {

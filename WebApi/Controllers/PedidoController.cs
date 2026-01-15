@@ -1,5 +1,6 @@
 ﻿using Domain.Dtos;
 using Domain.Entities;
+using Domain.Enums;
 using Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
@@ -58,12 +59,12 @@ namespace WebApi.Controllers
         }
 
         [HttpPatch("{id}/status")]
-        public async Task<ActionResult<PedidoDto>> AtualizarStatus(ObjectId id, [FromBody] string status)
+        public async Task<ActionResult<PedidoDto>> AtualizarStatus(ObjectId id, [FromBody] StatusPedido status)
         {
-            //var pedido = await _pedidoService.AtualizarStatus(id, status);
-            //if (pedido == null)
-            //    return NotFound();
-            
+            var pedido = await _pedidoService.AtualizarStatusPedido(id, status);
+            if (pedido == null)
+                return NotFound();
+
             return Ok(null);
         }
 

@@ -1,8 +1,10 @@
 ﻿using Domain.Entities;
+using Domain.Enums;
 using Domain.Interfaces.Repositories;
 using Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using MongoDB.Bson;
+using System.Net.NetworkInformation;
 
 namespace Infra.Data.Repository
 {
@@ -23,12 +25,40 @@ namespace Infra.Data.Repository
             return pedido;
         }
 
-        public async Task<Pedido> AtualizarPedido(Pedido pedido)
+        public async Task<Pedido> AtualizarPedido(ObjectId id, Pedido pedido)
         {
-            var pedidoDb = await _dbContext.Pedidos.Where(p => p.Codigo == pedido.Codigo).FirstOrDefaultAsync();
+            var pedidoDb = await _dbContext.Pedidos.Where(p => p.Id == id).FirstOrDefaultAsync();
 
             if (pedidoDb is null)
                 return null;
+
+            pedidoDb.Codigo = pedido.Codigo;
+            pedidoDb.DataHora = pedido.DataHora;
+            pedidoDb.ClienteId = pedido.ClienteId;
+            pedidoDb.ClienteNome = pedido.ClienteNome;
+            pedidoDb.RestauranteId = pedido.RestauranteId;
+            pedidoDb.RestauranteNome = pedido.RestauranteNome;
+            pedidoDb.Itens = pedido.Itens;
+            pedidoDb.TaxaEntrega = pedido.TaxaEntrega;
+            pedidoDb.CupomDescontoAplicado = pedido.CupomDescontoAplicado;
+            pedidoDb.Status = pedido.Status;
+            pedidoDb.Tipo = pedido.Tipo;
+
+            pedidoDb.CalcularTotalPedido();
+
+            await _dbContext.SaveChangesAsync();
+
+            return pedidoDb;
+        }
+
+        public async Task<Pedido> AtualizarStatusPedido(ObjectId id, StatusPedido statusPedido)
+        {
+            var pedidoDb = await _dbContext.Pedidos.Where(p => p.Id == id).FirstOrDefaultAsync();
+
+            if (pedidoDb is null)
+                return null;
+
+            pedidoDb.Status = statusPedido;
 
             await _dbContext.SaveChangesAsync();
 

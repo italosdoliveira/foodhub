@@ -13,7 +13,7 @@ namespace Domain.Entities
         public string RestauranteId { get; set; }
         public string? RestauranteNome { get; set; }
         public List<ItemPedido> Itens { get; set; } = new();
-        public decimal TaxaEntrega { get; private set; }
+        public decimal TaxaEntrega { get; set; }
         public string? CupomDescontoAplicado { get; set; }
         public decimal ValorTotal { get; private set; }
         public StatusPedido Status { get; set; }
