@@ -22,12 +22,16 @@ namespace Domain.Entities
         public void AdicionarNovoItem(ItemPedido itemPedido)
         {
             Itens.Add(itemPedido);
+
+            CalcularTotalPedido();
         }
 
-        public void AtualizarStatusPedido()
+        public void AtualizarStatusPedido(StatusPedido novoStatus)
         {
             if (Status == StatusPedido.Cancelado)
-                throw new Exception("O pedido já foi cancelado e não pode ter seu status alterado");
+                throw new InvalidOperationException("O pedido já foi cancelado e não pode ter seu status alterado");
+            
+            Status = novoStatus;
         }
 
         public void CalcularTotalPedido()
@@ -47,6 +51,6 @@ namespace Domain.Entities
         public decimal PrecoUnitario { get; set; }
         public string? Observacoes { get; set; }
         public decimal ValorAdicionais { get; set; }
-        public decimal ValorTotal { get; set; }
+        public decimal ValorTotal => (PrecoUnitario * Quantidade) + ValorAdicionais;
     }
 }
