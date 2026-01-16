@@ -4,7 +4,6 @@ using Domain.Interfaces.Repositories;
 using Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using MongoDB.Bson;
-using System.Net.NetworkInformation;
 
 namespace Infra.Data.Repository
 {

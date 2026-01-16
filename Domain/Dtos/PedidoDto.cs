@@ -17,6 +17,11 @@ namespace Domain.Dtos
         public string Status { get; set; }
         public string Tipo { get; set; }
 
+        public PedidoDto()
+        {
+            
+        }
+
         public PedidoDto(Pedido pedido)
         {
             Codigo = pedido.Codigo;
