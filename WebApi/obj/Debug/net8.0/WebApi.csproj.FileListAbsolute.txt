@@ -135,3 +135,5 @@ C:\Users\Pichau\Desktop\foodhub\WebApi\obj\Debug\net8.0\refint\WebApi.dll
 C:\Users\Pichau\Desktop\foodhub\WebApi\obj\Debug\net8.0\WebApi.pdb
 C:\Users\Pichau\Desktop\foodhub\WebApi\obj\Debug\net8.0\WebApi.genruntimeconfig.cache
 C:\Users\Pichau\Desktop\foodhub\WebApi\obj\Debug\net8.0\ref\WebApi.dll
+C:\Users\Pichau\Desktop\foodhub\WebApi\bin\Debug\net8.0\MediatR.dll
+C:\Users\Pichau\Desktop\foodhub\WebApi\bin\Debug\net8.0\MediatR.Contracts.dll

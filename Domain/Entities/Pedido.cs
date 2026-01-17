@@ -1,11 +1,10 @@
 using Domain.Enums;
-using MongoDB.Bson;
+using Domain.Events;
 
 namespace Domain.Entities
 {
-    public class Pedido
+    public class Pedido : Entity
     {
-        public ObjectId Id { get; set; }
         public string Codigo { get; set; }
         public DateTime DataHora { get; set; }
         public string ClienteId { get; set; }
@@ -29,8 +28,11 @@ namespace Domain.Entities
         public void AtualizarStatusPedido(StatusPedido novoStatus)
         {
             if (Status == StatusPedido.Cancelado)
+            {
+                AddDomainEvent(new PedidoCanceladoEvent(this));
                 throw new InvalidOperationException("O pedido já foi cancelado e não pode ter seu status alterado");
-            
+            }
+
             Status = novoStatus;
         }
 
