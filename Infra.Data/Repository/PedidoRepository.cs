@@ -1,7 +1,9 @@
 ﻿using Domain.Entities;
 using Domain.Enums;
+using Domain.Events;
 using Domain.Interfaces.Repositories;
 using Infra.Data.Context;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MongoDB.Bson;
 
@@ -9,16 +11,19 @@ namespace Infra.Data.Repository
 {
     public class PedidoRepository : IPedidoRepository
     {
+        private readonly IMediator _mediator;
         private readonly ApplicationMongoDbContext _dbContext;
 
-        public PedidoRepository(ApplicationMongoDbContext dbContext)
+        public PedidoRepository(IMediator mediator, ApplicationMongoDbContext dbContext)
         {
+            _mediator = mediator;
             _dbContext = dbContext;
         }
 
         public async Task<Pedido> AdicionarPedido(Pedido pedido)
         {
             await _dbContext.Pedidos.AddAsync(pedido);
+            pedido.AddDomainEvent(new PedidoCriadoEvent(pedido));
             await _dbContext.SaveChangesAsync();
 
             return pedido;
@@ -45,21 +50,27 @@ namespace Infra.Data.Repository
 
             pedidoDb.CalcularTotalPedido();
 
+            pedidoDb.AddDomainEvent(new PedidoAtualizadoEvent(pedido));
+
             await _dbContext.SaveChangesAsync();
+
+            DispatchDomainEvents(pedido._domainEvents);
 
             return pedidoDb;
         }
 
-        public async Task<Pedido> AtualizarStatusPedido(ObjectId id, StatusPedido statusPedido)
+        public async Task<Pedido> AtualizarStatusPedido(ObjectId id, StatusPedido novoStatusPedido)
         {
             var pedidoDb = await _dbContext.Pedidos.Where(p => p.Id == id).FirstOrDefaultAsync();
 
             if (pedidoDb is null)
                 return null;
 
-            pedidoDb.Status = statusPedido;
+            pedidoDb.AtualizarStatusPedido(novoStatusPedido);
 
             await _dbContext.SaveChangesAsync();
+
+            DispatchDomainEvents(pedidoDb._domainEvents);
 
             return pedidoDb;
         }
@@ -90,5 +101,14 @@ namespace Infra.Data.Repository
 
             return pedidos.AsEnumerable();
         }
+
+        private void DispatchDomainEvents(List<INotification> domainEvents)
+        {
+            foreach (var domainEvent in domainEvents)
+            {
+                _mediator.Publish(domainEvent);
+            }
+        }
+
     }
 }
