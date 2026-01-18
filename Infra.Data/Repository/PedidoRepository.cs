@@ -42,11 +42,15 @@ namespace Infra.Data.Repository
             pedidoDb.ClienteNome = pedido.ClienteNome;
             pedidoDb.RestauranteId = pedido.RestauranteId;
             pedidoDb.RestauranteNome = pedido.RestauranteNome;
-            pedidoDb.Itens = pedido.Itens;
             pedidoDb.TaxaEntrega = pedido.TaxaEntrega;
             pedidoDb.CupomDescontoAplicado = pedido.CupomDescontoAplicado;
             pedidoDb.Status = pedido.Status;
             pedidoDb.Tipo = pedido.Tipo;
+
+            if (pedidoDb.Itens.Any() && pedido.Itens.Any())
+            {
+                pedidoDb.Itens = pedido.Itens;
+            }
 
             pedidoDb.CalcularTotalPedido();
 

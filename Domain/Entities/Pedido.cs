@@ -21,7 +21,6 @@ namespace Domain.Entities
         public void AdicionarNovoItem(ItemPedido itemPedido)
         {
             Itens.Add(itemPedido);
-
             CalcularTotalPedido();
         }
 
@@ -30,7 +29,14 @@ namespace Domain.Entities
             if (Status == StatusPedido.Cancelado)
             {
                 AddDomainEvent(new PedidoCanceladoEvent(this));
+                AddDomainEvent(new StatusPedidoAlteradoEvent(novoStatus));
                 throw new InvalidOperationException("O pedido já foi cancelado e não pode ter seu status alterado");
+            }
+
+            if (Status == StatusPedido.Entregue)
+            {
+                AddDomainEvent(new StatusPedidoAlteradoEvent(novoStatus));
+                throw new InvalidOperationException("O pedido já foi entregue e não pode ter seu status alterado");
             }
 
             Status = novoStatus;
