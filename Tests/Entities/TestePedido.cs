@@ -30,11 +30,25 @@
         }
 
         [Fact]
-        public void AtualizarStatusPedido_RetornaException()
+        public void AtualizarStatusPedido_RetornaExceptionJaCancelado()
         {
             var pedido = new Domain.Entities.Pedido
             {
                 Status = Domain.Enums.StatusPedido.Cancelado
+            };
+
+            Assert.Throws<InvalidOperationException>(() =>
+            {
+                pedido.AtualizarStatusPedido(Domain.Enums.StatusPedido.Entregue);
+            });
+        }
+
+        [Fact]
+        public void AtualizarStatusPedido_RetornaExceptionJaEntregue()
+        {
+            var pedido = new Domain.Entities.Pedido
+            {
+                Status = Domain.Enums.StatusPedido.Entregue
             };
 
             Assert.Throws<InvalidOperationException>(() =>
