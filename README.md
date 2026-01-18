@@ -7,7 +7,7 @@ Para abstrações de banco de dados foi utilizado o padrão repository. Usando i
 As regras de negócio estão nas entidades, nos handlers e nos services e foram estes que foram testados.\
 Nas rotas dos controllers são retornados um dto do pedido e não a entidade pedido em si.\
 Para alterar o banco basta acessar o arquivo Program.cs e alterar a connection string do banco de dados mongo.\
-Todas as rotas estão presentes e podem ser acessadas via swagger se em localhost na rota https://localhost:7272/swagger/index.html\
+Todas as rotas estão presentes e podem ser acessadas via swagger se em localhost na rota https://localhost:7272/swagger/index.html \
 Para criar ou atualizar um pedido basta usar o json abaixo.
 ```
 {
