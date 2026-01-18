@@ -1,7 +1,10 @@
 # foodhub
 Desafio técnico foodhub
 -----------
-Este repositorio foi criado para o desafio técnico Foodhub, escolhi utilizar clean architeture para este projeto.
+Este repositorio foi criado para o desafio técnico Foodhub, escolhi utilizar clean architeture para este projeto com as camadas Domain, Application, Infra.Data e Infra.Ioc, além da camada WebApi. Também foi utilizado o mediator para disparar Domain Events para alguns tipos de eventos relacionados ao pedido.
+Nas rotas são retornados um dto do pedido e não a entidade pedido em si.
+Para alterar o banco basta acessar o arquivo Program.cs e alterar a connection string do banco de dados mongo.
+Todas as rotas estão presentes e podem ser acessadas via swagger se em localhost na rota https://localhost:7272/swagger/index.html
 Para criar ou atualizar um pedido basta usar o json abaixo.
 ```
 {
