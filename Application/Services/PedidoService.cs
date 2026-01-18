@@ -51,9 +51,9 @@ namespace Application.Services
 
                 return new PedidoDto(pedidoAtualizado);
             }
-            catch
+            catch (Exception ex)
             {
-                return null;
+                throw ex;
             }
         }
 
