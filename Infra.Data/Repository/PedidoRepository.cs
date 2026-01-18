@@ -61,18 +61,24 @@ namespace Infra.Data.Repository
 
         public async Task<Pedido> AtualizarStatusPedido(ObjectId id, StatusPedido novoStatusPedido)
         {
-            var pedidoDb = await _dbContext.Pedidos.Where(p => p.Id == id).FirstOrDefaultAsync();
+            try
+            {
+                var pedidoDb = await _dbContext.Pedidos.Where(p => p.Id == id).FirstOrDefaultAsync();
 
-            if (pedidoDb is null)
-                return null;
+                if (pedidoDb is null)
+                    return null;
 
-            pedidoDb.AtualizarStatusPedido(novoStatusPedido);
+                pedidoDb.AtualizarStatusPedido(novoStatusPedido);
 
-            await _dbContext.SaveChangesAsync();
+                await _dbContext.SaveChangesAsync();
 
-            DispatchDomainEvents(pedidoDb._domainEvents);
+                DispatchDomainEvents(pedidoDb._domainEvents);
 
-            return pedidoDb;
+                return pedidoDb;
+            }
+            catch (Exception ex) {
+                throw ex;
+            }
         }
 
         public async Task<Pedido> BuscarPedidoPeloCodigo(string codigo)
@@ -104,6 +110,9 @@ namespace Infra.Data.Repository
 
         private void DispatchDomainEvents(List<INotification> domainEvents)
         {
+            if (domainEvents is null || !domainEvents.Any())
+                return;
+
             foreach (var domainEvent in domainEvents)
             {
                 _mediator.Publish(domainEvent);

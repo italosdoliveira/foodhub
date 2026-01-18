@@ -3,6 +3,7 @@ using Domain.Interfaces.Repositories;
 using Domain.Interfaces.Services;
 using Infra.Data.Context;
 using Infra.Data.Repository;
+using Infra.Ioc;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,7 +22,6 @@ builder.Services.AddDbContext<ApplicationMongoDbContext>(options =>
     );
 });
 
-
 // DI
 builder.Services.AddScoped<IPedidoRepository, PedidoRepository>();
 builder.Services.AddScoped<IPedidoService, PedidoService>();
@@ -37,6 +37,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.MapControllers();
 

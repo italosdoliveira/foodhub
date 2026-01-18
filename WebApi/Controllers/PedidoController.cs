@@ -61,11 +61,18 @@ namespace WebApi.Controllers
         [HttpPatch("{id}/status")]
         public async Task<ActionResult<PedidoDto>> AtualizarStatus(ObjectId id, [FromBody] StatusPedido status)
         {
-            var pedido = await _pedidoService.AtualizarStatusPedido(id, status);
-            if (pedido == null)
-                return NotFound();
+            try
+            {
+                var pedido = await _pedidoService.AtualizarStatusPedido(id, status);
+                if (pedido == null)
+                    return NotFound();
 
-            return Ok(null);
+                return Ok(null);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         [HttpDelete("{id}")]
